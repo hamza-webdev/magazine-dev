@@ -9,12 +9,15 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>{{ controller_name }}! ✅</h1>
+
 
     Bienvenue sur Magazine DEV
-    <ul>
-        <li>Your controller at <code><a href="{{ 'E:/appli/symfony/magazine-dev/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'E:/appli/symfony/magazine-dev/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+    {% for post in posts %}
+    <h2>{{ post.title }}</h2>
+        <small>{{ post.publishedAt | date("d/m/y") }}</small>
+        <p>{{ post.content }}</p>
+    {% endfor %}
+
+
 </div>
 {% endblock %}
